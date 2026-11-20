@@ -1,0 +1,163 @@
+// Content gathered from itsmachas.com (Nov 2026). Bios are short paraphrases.
+const BASE = import.meta.env.VITE_ART_BASE || `${import.meta.env.BASE_URL}art-local`
+export const art = (p) => encodeURI(`${BASE}/${p}`)
+
+export const DISCIPLINES = [
+  'All',
+  'Illustration',
+  'Collage',
+  'Installation',
+  'Mural',
+  'Animation',
+  'Photography',
+  'New Media',
+]
+
+const A = (slug, name, tags, base, bio, cover, works, collabs = [], extra = {}) => ({
+  slug,
+  name,
+  tags,
+  base,
+  bio,
+  cover: art(`artist-images/${cover}`),
+  works: works.map((w) => art(`portfolio-images/${w}`)),
+  collabs,
+  ...extra,
+})
+
+export const ARTISTS = [
+  A('alberto-casagrande', 'Alberto Casagrande', ['Illustration', 'Mural', 'Collage'], 'Milan',
+    'Graphic designer turned illustrator whose love of typography runs through every piece — his Mazius Display typeface became a Squarespace default.',
+    'Machas-Talent-List-Alberto-Casagrande.jpg',
+    ['Machas_Alberto_Casagrande_horse_view.jpg', 'Machas_Alberto_Casagrande_Talent_Piperita-Mural.jpg', 'Machas_Alberto_Casagrande_Vittorio_mural_view.jpg', 'Machas_Alberto_Casagrande_ENI_view.jpg'],
+    ['ENI', 'Plenitude', 'Memorace']),
+  A('jonathan-calugi', 'Jonathan Calugi', ['Illustration', 'Mural'], 'Italy',
+    'Expressive minimalism drawn in one seemingly continuous line, punctuated by bold geometric forms — digital or freehand, wall or screen.',
+    'JC.jpg',
+    ['1-Machas-Artist-Jonathan-Calugi-Talent-view-Apple-Project.jpg', '2-Machas-Artist-Jonathan-Calugi-Talent-view-airbnab-hero-square.jpg', '3-Machas-Artist-Jonathan-Calugi-Talent-view-airbnb.jpg', '4-Machas-Artist-Jonathan-Calugi-Talent-view-airbnb-bag.jpg'],
+    ['Apple', 'Airbnb', 'Huawei', 'Fineco']),
+  A('miguel-camprubi-lopez', 'Miguel Ángel Camprubí', ['Illustration', 'Animation'], 'Spain',
+    'Illustrator, character designer and animator from Madrid, shaped by product design and motion work in Amsterdam.',
+    'MC.jpg',
+    ['Machas_Miguel_Angel_Camprubi_Peckish_Billboard_view.jpg', 'Machas_Miguel_Angel_Camprubi_Peckish_view.jpg', 'Machas_Miguel_Angel_Camprubi_Dubai.jpg', 'Machas_Miguel_Angel_Camprubi_Coca_Cola_view.jpg'],
+    ['Coca-Cola', 'OBOS', 'Peckish']),
+  A('ray-oranges', 'Ray Oranges', ['Illustration', 'Mural', 'New Media'], 'Florence',
+    'Crisp storytelling built from negative space, long shadows and bursts of light — a visual memory of his Calabrian childhood.',
+    'RO.jpg',
+    ['Machas_Ray_Oranges_Fameccanica_Mural_view.jpg', 'Machas_Ray_Oranges_Renault_Viva_Festival_view.png', 'Machas_Ray_Oranges_Renault_Italy_HQ_view.jpg', 'Machas_Ray_Oranges_Forbes_Japan_view.jpg'],
+    ['Renault', 'Fameccanica', 'Forbes Japan']),
+  A('kaz-shirane', 'Kaz Shirane', ['Installation'], 'Japan',
+    'Architect-trained spatial artist who uses the mirror as a medium, turning the viewer into the designer of the work.',
+    'KS.jpg',
+    ['Machas_Kaz_Shirane_Louis_Vuitton_view.jpg', 'Machas_Kaz_Shirane_Enso_view.jpg', 'Machas_Kaz_Shirane_Dance_of_Light_view.jpg', 'Machas_Kaz_Shirane_Hand_in_Hand_view.jpg'],
+    ['Louis Vuitton', 'OMA']),
+  A('james-dawe', 'James Dawe', ['Collage'], 'London',
+    'A defining voice of the 2010s collage movement — eclectic postmodernism fusing collage, digital manipulation and 3D.',
+    'Machas-James-Dawe-Talent.jpg',
+    ['Machas-James-Dawe-Portrait-1-Talent.jpg', 'Machas-James-Dawe-Portrait-4-Talent.jpg', 'Machas-James-Dawe-Mural-Talent.jpg', 'Machas-James-Dawe-Adidas-Talent.jpg'],
+    ['Adidas', 'Lavazza']),
+  A('giulia-conoscenti', 'Giulia Conoscenti', ['Illustration', 'Animation'], 'Bologna & Palermo',
+    'Visual artist working across drawing, animation, ceramics and design; she also teaches at the Accademia di Belle Arti di Palermo.',
+    'Machas-Giulia-Conoscenti_Newslist.jpg',
+    ['Machas_Giulia_Conoscenti_Cosmopolitan_view.jpg', 'Machas_Giulia_Conoscenti_Barilla_view.jpg', 'Machas_Giulia_Conoscenti_Barilla_Plate_view.jpg', 'Machas_Giulia_Conoscenti_FilmmakHER-Roberta-Torre_view.jpg'],
+    ['Barilla', 'Cosmopolitan']),
+  A('cao-yuxi', 'Cao Yuxi', ['New Media', 'Installation'], 'New York',
+    'New media artist spanning audiovisual installation, interactive art, immersive spatial design and code.',
+    'Cao.jpg',
+    ['Machas_Cao_Yuxi_Pollen_Pixels_view.jpg', 'Machas_Cao_Yuxi_Mutek_Montreal_view.jpg', 'Machas_Cao_Yuxi_Seasonal_Proximity_Spain_view.jpg', 'Machas_Cao_Yuxi_Rekindle_view.jpg'],
+    ['MUTEK Montréal']),
+  A('helene-builly', 'Hélène Builly', ['Collage', 'Illustration'], 'Paris',
+    'Mixed-media collage so refined it reads like photography, without ever losing the poetry of the cut.',
+    'Helene_b.jpg',
+    ['1-Machas-Artist-Helene-Builly-Talent-view-Celestins.jpg', '3-Machas-Artist-Helene-Builly-Talent-view-Celestins.jpg', '2-Machas-Artist-Helene-Builly-TalentView-Celestins-4.jpg', '4-Machas-Artist-Helene-Builly-Talent-view-Celestins.jpg'],
+    ['Iris Ceramica Group']),
+  A('becha', 'Becha', ['Collage', 'Illustration', 'Animation'], null,
+    'Digital collage taken to new heights — unrelated images harmonised into witty, layered and vividly finished worlds.',
+    'Machas-Talent-List-BECHA.jpg',
+    ['Machas_Becha_ICg_view.jpg', 'Machas_Becha_Cersarie_view.jpg', 'Machas_Becha_POLEN_view.jpg', 'Machas_Becha_Honor_view.jpg'],
+    ['Iris Ceramica Group', 'Honor', 'Metropoliten']),
+  A('fernando-chamarelli', 'Fernando Chamarelli', ['Illustration', 'Mural'], 'Brazil',
+    'Raised among the rivers of central Brazil, he moved from comics to street art, tattoo and painting.',
+    'Fernando.jpg',
+    ['Machas-Fernando-Chamarelli_Coca-Cola-talent.jpg', 'Machas_Chamarelli_F1_Helmet_view.jpg', 'Machas_Chamarelli_F1_Helmet_Gasly_view.jpg', 'Machas_Chamarelli_Basketball_Court_view.jpg'],
+    ['Coca-Cola', 'Formula 1']),
+  A('agostino-iacurci', 'Agostino Iacurci', ['Mural', 'Illustration'], 'Italy',
+    'Multidisciplinary painter of synthetic forms and layered narratives, renowned for large-scale murals.',
+    'Ago.jpg',
+    ['Machas-Agostino-Iacurci-Disegno-d’esame-Talent.jpg', 'Machas-Agostino-Iacurci-Borgo-Universo-Talent.jpg', 'Machas-Agostino-Iacurci-Principal-Place-Talent.jpg', 'Machas-Agostino-Iacurci-Palmen-am-Rhein-Talent.jpg'],
+    []),
+  A('jeff-rogers', 'Jeff Rogers', ['Illustration'], 'New York',
+    'Custom lettering, murals and posters — a former SpotCo Broadway poster designer with a tap dancer’s rhythm.',
+    'Jeff.jpg',
+    ['Machas-Jeff-Rogers-Monterey-Jazz-Festival-talent.jpg', 'Machas-Jeff-Rogers-Monterey-Jazz-Festival-sun-talent.jpg', 'Machas-Jeff-Rogers-Oak-Cliff-talent.jpg', 'Machas-Jeff-Rogers-Oak-Cliff-2-talent.jpg'],
+    ['Monterey Jazz Festival']),
+  A('wanda-barcelona', 'Wanda Barcelona', ['Installation'], 'Barcelona',
+    'A trio crafting immersive paper worlds and origami-like objects with elegance and a touch of wonder.',
+    'Wanda.jpg',
+    ['Machas_Portfolio_Web_update_Wanda_view_drupa.jpg', '1-Machas-Artist-Wanda-Barcelona-Talent-view-DIOR.jpg', '2-Machas-Artist-Wanda-Barcelona-Talent-view-Dior-christmas-tree1.jpg', 'Machas_Portfolio_Web_update_Wanda_view_karl.jpg'],
+    ['Dior', 'drupa']),
+  A('james-braithwaite', 'James Braithwaite', ['Illustration', 'Animation'], null,
+    'Offbeat characters with unforgettable personality — and an Emmy for his short film “I Met The Walrus”.',
+    'James.jpg',
+    ['Machas_website_talent_James_Braithwaite_our_public_library_-_view_image_2.jpg', 'JB_-_PU_-_View_-_Image_7.jpg', 'Machas-Web-Images-Talent-View-Braithwaite_Walrus.gif', 'Machas-Web-Images-Talent-View-Braithwaite_Walrus-2.gif'],
+    ['Kenco', 'ESPN']),
+  A('tooco', 'Tooco', ['Illustration', 'Installation'], null,
+    'Other-worldly organisms rendered with mathematical precision, blending heterogeneous inspirations into one evolving cycle.',
+    'tooco.jpg',
+    ['Tooco_Campari2_viewImg_ok.jpg', 'Tooco_Campari1_viewImg.jpg', '1-Machas-Artist-Tooco-talent-view-HSBC-UK.jpg', '3-Machas-Artist-Tooco-talent-view-Big-brother-argentina.jpg'],
+    ['Campari', 'HSBC UK']),
+  A('elena-iv-skaya', 'Elena Iv-Skaya', ['Photography'], null,
+    'Fashion photography as an ode to beauty and colour — saturated hues, high contrast and bold feminine figures.',
+    'Elena.jpg',
+    ['Machas-Elena-Iv-Skaya-ELLE-Slovenia-Cover-Talent.jpg', 'Machas_Elena_Iv-Skaya_ELLE_Slovenia.jpg', 'Machas-Elena-Iv-Skaya-Qeeboo-Talent.png', 'Machas-Elena-Iv-Skaya-Qeeboo-2-Talent.png'],
+    ['Lavazza', 'ELLE', 'Qeeboo'],
+    { memoriam: true }),
+]
+
+export const bySlug = Object.fromEntries(ARTISTS.map((a) => [a.slug, a]))
+
+// Selected consultancy & commissions (from the Machas consultancy and news pages)
+export const CASES = [
+  { brand: 'Louis Vuitton × OMA', title: 'Visionary Journeys', artist: 'kaz-shirane', type: 'Exhibition · Osaka Expo 2025', img: 0 },
+  { brand: 'Renault', title: 'Video-mapping installation', artist: 'ray-oranges', type: 'Art & technology', img: 2 },
+  { brand: 'Lavazza', title: 'Pleasure Makes Us Human', artist: 'james-dawe', type: 'Campaign', img: 0 },
+  { brand: 'Dior', title: 'Paper worlds', artist: 'wanda-barcelona', type: 'Installation', img: 1 },
+  { brand: 'Apple', title: 'One-line universe', artist: 'jonathan-calugi', type: 'Illustration', img: 0 },
+  { brand: 'Fameccanica', title: '50 years of innovation', artist: 'ray-oranges', type: 'Façade mural', img: 0 },
+  { brand: 'Formula 1', title: 'Helmet for Pierre Gasly', artist: 'fernando-chamarelli', type: 'Product art', img: 2 },
+  { brand: 'Iris Ceramica Group', title: 'Cersaie posters', artist: 'becha', type: 'Curation · Exhibition', img: 1 },
+]
+
+export const SERVICES = [
+  {
+    n: '01',
+    title: 'Talent Management',
+    body: 'Established names and not-yet-on-the-radar voices, carefully selected, nurtured, advised and championed through communication and events.',
+  },
+  {
+    n: '02',
+    title: 'Bespoke Consultancy',
+    body: 'From brief to brand experience: we shape ideas, match the right artist to the vision, and unlock what a communication strategy can become.',
+  },
+  {
+    n: '03',
+    title: 'Art Direction & Production',
+    body: 'A true one-stop agency. Project teams, production and activation, delivered with sister agencies across the globe.',
+  },
+]
+
+export const CLIENTS = [
+  'Adidas', 'Airbnb', 'Alfa Romeo', 'Apple', 'Barclays', 'BBC', 'Bulgari', 'Coca-Cola', 'Elle', 'Emporio Armani',
+  'Esquire', 'Ferragamo', 'Financial Times', 'Ford', 'Google', 'GQ', 'Harrods', 'H&M', 'Heineken', 'Herman Miller',
+  'HSBC', 'Huawei', "L'Oréal", 'Longchamp', 'Monocle', 'Nestlé', 'New York Times', 'Nike', 'Peroni', 'PlayStation',
+  'Porsche', 'Rolls-Royce', 'Samsung', 'Sony', 'Taschen', 'The Economist', 'The Guardian', 'Universal Music',
+  'Vogue Italia', 'Wallpaper*', 'Warner Music', 'Wired', 'Yamaha', 'Zegna',
+]
+export const CLIENT_COUNT = 90 // the Machas client page lists ~90 brands
+
+export const CONTACT = {
+  email: 'sayhello@itsmachas.com',
+  phone: '+44 (0)208 509 0687',
+  city: 'London, UK',
+  instagram: 'https://www.instagram.com/itsmachas/',
+}
